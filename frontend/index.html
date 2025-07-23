@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic CRM - Autonomous Customer Relationship Management</title>
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <meta name="description" content="Autonomous AI-powered Customer Relationship Management system with universal memory and intelligent automation">
+    <meta name="keywords" content="CRM, AI, automation, customer management, sales, agentic AI">
+    <meta name="author" content="Agentic World">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/dashboard.css">
+    <link rel="stylesheet" href="./static/css/components.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-robot"></i>
+                <h2>Agentic CRM</h2>
+            </div>
+            <div class="loading-spinner"></div>
+            <p>Initializing autonomous AI systems...</p>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen hidden">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>Agentic CRM</h1>
+                    <p>Autonomous Customer Relationship Management</p>
+                </div>
+            </div>
+            
+            <div class="login-form-container">
+                <form id="login-form" class="login-form">
+                    <h2>Welcome Back</h2>
+                    <p class="login-subtitle">Sign in to your autonomous CRM</p>
+                    
+                    <div class="form-group">
+                        <label for="email">Email or Username</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                    
+                    <div class="login-divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <button type="button" id="google-login" class="btn btn-google btn-full">
+                        <i class="fab fa-google"></i>
+                        Continue with Google Workspace
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" id="show-register">Create one</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="main-app" class="main-app hidden">
+        <!-- Navigation Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="fas fa-robot"></i>
+                    <span>Agentic CRM</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle sidebar" aria-label="Toggle sidebar navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="#dashboard" class="nav-link" data-view="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contacts" class="nav-link" data-view="contacts">
+                            <i class="fas fa-users"></i>
+                            <span>Contacts</span>
+                            <span class="nav-badge" id="contacts-badge">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#deals" class="nav-link" data-view="deals">
+                            <i class="fas fa-handshake"></i>
+                            <span>Deals</span>
+                            <span class="nav-badge" id="deals-badge">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tasks" class="nav-link" data-view="tasks">
+                            <i class="fas fa-tasks"></i>
+                            <span>Tasks</span>
+                            <span class="nav-badge urgent" id="tasks-badge">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#activities" class="nav-link" data-view="activities">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Activities</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#memory" class="nav-link" data-view="memory">
+                            <i class="fas fa-brain"></i>
+                            <span>Memory</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#ai-insights" class="nav-link" data-view="ai-insights">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>AI Insights</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-view="analytics">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-divider"></div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#integrations" class="nav-link" data-view="integrations">
+                            <i class="fas fa-plug"></i>
+                            <span>Integrations</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-view="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="user-name">Loading...</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                    <button class="user-menu-toggle" id="user-menu-toggle" title="User menu" aria-label="Open user menu">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title" id="page-title">Dashboard</h1>
+                    <div class="breadcrumb" id="breadcrumb">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="search-container">
+                        <input type="text" id="global-search" placeholder="Search contacts, deals, companies..." class="search-input">
+                        <button class="search-btn" title="Search" aria-label="Search contacts, deals, and companies">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button class="header-btn" id="notifications-btn" title="Notifications" aria-label="View notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notification-count">0</span>
+                    </button>
+                    
+                    <button class="header-btn" id="quick-add-btn" title="Quick Add" aria-label="Quick add contact, deal, or task">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    
+                    <button class="header-btn" id="ai-assistant-btn" title="AI Assistant" aria-label="Open AI assistant panel">
+                        <i class="fas fa-robot"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Views -->
+            <div class="content-container">
+                <!-- Dashboard View -->
+                <div id="dashboard-view" class="view active">
+                    <!-- Dashboard content will be loaded here -->
+                </div>
+                
+                <!-- Contacts View -->
+                <div id="contacts-view" class="view">
+                    <!-- Contacts content will be loaded here -->
+                </div>
+                
+                <!-- Deals View -->
+                <div id="deals-view" class="view">
+                    <!-- Deals content will be loaded here -->
+                </div>
+                
+                <!-- Tasks View -->
+                <div id="tasks-view" class="view">
+                    <!-- Tasks content will be loaded here -->
+                </div>
+                
+                <!-- Activities View -->
+                <div id="activities-view" class="view">
+                    <!-- Activities content will be loaded here -->
+                </div>
+                
+                <!-- Memory View -->
+                <div id="memory-view" class="view">
+                    <!-- Memory content will be loaded here -->
+                </div>
+                
+                <!-- AI Insights View -->
+                <div id="ai-insights-view" class="view">
+                    <!-- AI Insights content will be loaded here -->
+                </div>
+                
+                <!-- Analytics View -->
+                <div id="analytics-view" class="view">
+                    <!-- Analytics content will be loaded here -->
+                </div>
+                
+                <!-- Settings View -->
+                <div id="settings-view" class="view">
+                    <!-- Settings content will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals and Overlays -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Modal Title</h3>
+                <button class="modal-close" id="modal-close" title="Close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Container -->
+    <div id="notifications-container" class="notifications-container"></div>
+
+    <!-- Search Results Dropdown -->
+    <div id="search-results" class="search-results hidden"></div>
+
+    <!-- Quick Add Menu -->
+    <div id="quick-add-menu" class="quick-add-menu hidden">
+        <button class="quick-add-item" data-action="add-contact">
+            <i class="fas fa-user-plus"></i>
+            <span>Add Contact</span>
+        </button>
+        <button class="quick-add-item" data-action="add-deal">
+            <i class="fas fa-handshake"></i>
+            <span>Add Deal</span>
+        </button>
+        <button class="quick-add-item" data-action="add-task">
+            <i class="fas fa-plus-square"></i>
+            <span>Add Task</span>
+        </button>
+        <button class="quick-add-item" data-action="log-activity">
+            <i class="fas fa-calendar-plus"></i>
+            <span>Log Activity</span>
+        </button>
+    </div>
+
+    <!-- AI Assistant Panel -->
+    <div id="ai-assistant-panel" class="ai-assistant-panel hidden">
+        <div class="ai-assistant-header">
+            <h3>AI Assistant</h3>
+            <button class="ai-assistant-close" title="Close" aria-label="Close AI assistant panel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-assistant-body">
+            <div class="ai-chat-messages" id="ai-chat-messages"></div>
+            <div class="ai-chat-input">
+                <input type="text" id="ai-chat-input" placeholder="Ask your AI assistant...">
+                <button id="ai-chat-send" title="Send" aria-label="Send message to AI assistant">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./static/js/config.js"></script>
+    <script src="./static/js/utils.js"></script>
+    <script src="./static/js/api.js"></script>
+    <script src="./static/js/auth.js"></script>
+    <script src="./static/js/dashboard.js"></script>
+    <script src="./static/js/contacts.js"></script>
+    <script src="./static/js/deals.js"></script>
+    <script src="./static/js/tasks.js"></script>
+    <script src="./static/js/memory.js"></script>
+    <script src="./static/js/ai-assistant.js"></script>
+    <script src="./static/js/main.js"></script>
+</body>
+</html>

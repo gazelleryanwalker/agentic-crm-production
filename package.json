@@ -1,0 +1,18 @@
+{
+  "name": "agentic-crm",
+  "version": "1.0.0",
+  "description": "Autonomous Customer Relationship Management System",
+  "main": "netlify/functions/api.js",
+  "scripts": {
+    "build": "echo 'Build complete'",
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0"
+  },
+  "keywords": ["crm", "ai", "autonomous", "customer-management"],
+  "author": "Agentic CRM Team",
+  "license": "MIT"
+}
