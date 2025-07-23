@@ -322,6 +322,7 @@ class LoginForm {
         const email = this.emailInput.value.trim();
         const password = this.passwordInput.value;
 
+
         // Basic validation
         if (!email || !password) {
             notifications.error('Please fill in all fields');
