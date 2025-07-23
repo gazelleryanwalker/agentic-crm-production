@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic CRM - Autonomous Customer Relationship Management</title>
+    <link rel="stylesheet" href="frontend/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>Loading Agentic CRM...</p>
+    </div>
+
+    <!-- Main Application Container -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Navigation Header -->
+        <header class="header">
+            <div class="header-left">
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="app-title">Agentic CRM</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-menu">
+                    <button id="user-menu-toggle" class="user-menu-toggle">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="user-name">Admin</span>
+                    </button>
+                    <div id="user-dropdown" class="user-dropdown">
+                        <a href="#" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-content">
+                <ul class="nav-menu">
+                    <li><a href="#" data-page="dashboard" class="nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a></li>
+                    <li><a href="#" data-page="contacts" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Contacts</span>
+                    </a></li>
+                    <li><a href="#" data-page="deals" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Deals</span>
+                    </a></li>
+                    <li><a href="#" data-page="tasks" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                    </a></li>
+                    <li><a href="#" data-page="memory" class="nav-link">
+                        <i class="fas fa-brain"></i>
+                        <span>Memory</span>
+                    </a></li>
+                    <li><a href="#" data-page="ai-assistant" class="nav-link">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Assistant</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <!-- Content will be dynamically loaded here -->
+        </main>
+    </div>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2>Login to Agentic CRM</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="frontend/static/js/config.js"></script>
+    <script src="frontend/static/js/api.js"></script>
+    <script src="frontend/static/js/auth.js"></script>
+    <script src="frontend/static/js/dashboard.js"></script>
+    <script src="frontend/static/js/contacts.js"></script>
+    <script src="frontend/static/js/deals.js"></script>
+    <script src="frontend/static/js/tasks.js"></script>
+    <script src="frontend/static/js/memory.js"></script>
+    <script src="frontend/static/js/ai-assistant.js"></script>
+    <script src="frontend/static/js/app.js"></script>
+</body>
+</html>
