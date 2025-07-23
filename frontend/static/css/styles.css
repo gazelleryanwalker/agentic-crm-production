@@ -1,0 +1,11 @@
+/* Agentic CRM - Additional Styles */
+
+/* App Container Initial State */
+.app-container {
+    display: none;
+}
+
+/* Show app container when loaded */
+.app-container.loaded {
+    display: block;
+}
