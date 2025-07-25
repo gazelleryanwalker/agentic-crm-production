@@ -29,6 +29,7 @@ def create_app():
     from app.routes.memory import memory_bp
     from app.routes.ai import ai_bp
     from app.routes.dashboard import dashboard_bp
+    from app.routes.debug import debug_bp
     # from app.routes.google_auth import google_auth_bp  # Temporarily disabled for stable launch
     
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
@@ -36,6 +37,7 @@ def create_app():
     app.register_blueprint(memory_bp, url_prefix='/api/memory')
     app.register_blueprint(ai_bp, url_prefix='/api/ai')
     app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
+    app.register_blueprint(debug_bp, url_prefix='/api/debug')
     # app.register_blueprint(google_auth_bp, url_prefix='/api/auth')  # Temporarily disabled for stable launch
     
     # Health check endpoint
