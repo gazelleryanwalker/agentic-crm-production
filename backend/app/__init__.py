@@ -13,8 +13,20 @@ def create_app():
     
     # Configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'agentic-crm-secret-key-change-in-production')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///agentic_crm.db')
+    
+    # Database configuration - handle both PostgreSQL and SQLite
+    database_url = os.environ.get('DATABASE_URL', 'sqlite:///agentic_crm.db')
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+    
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+        'pool_pre_ping': True,
+        'pool_recycle': 300,
+        'connect_args': {'connect_timeout': 10}
+    }
+    
     app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'jwt-secret-change-in-production')
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
     
@@ -30,6 +42,7 @@ def create_app():
     from app.routes.ai import ai_bp
     from app.routes.dashboard import dashboard_bp
     from app.routes.debug import debug_bp
+    from app.routes.seo import seo_bp
     # from app.routes.google_auth import google_auth_bp  # Temporarily disabled for stable launch
     
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
@@ -38,6 +51,7 @@ def create_app():
     app.register_blueprint(ai_bp, url_prefix='/api/ai')
     app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
     app.register_blueprint(debug_bp, url_prefix='/api/debug')
+    app.register_blueprint(seo_bp, url_prefix='/api/seo')
     # app.register_blueprint(google_auth_bp, url_prefix='/api/auth')  # Temporarily disabled for stable launch
     
     # Health check endpoint
@@ -45,10 +59,22 @@ def create_app():
     def health_check():
         return {'status': 'healthy', 'service': 'Agentic CRM'}
     
+    # Import all models to ensure tables are created
+    from app.models.user import User
+    from app.models.contact import Contact
+    from app.models.deal import Deal
+    from app.models.task import Task
+    from app.models.memory import Memory
+    from app.models.seo import SEOProject, SEOAnalysis, SEORule, SEOOptimization, SEOKeyword, SEOAudit, SEOTemplate
+    
     # Create database tables
     with app.app_context():
-        db.create_all()
-        create_default_admin()
+        try:
+            db.create_all()
+            print("Database tables created successfully")
+            create_default_admin()
+        except Exception as e:
+            print(f"Error creating database tables: {e}")
     
     return app
 

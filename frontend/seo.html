@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Automation - Agentic CRM</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>Agentic CRM</h2>
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="crm.html"><i class="fas fa-users"></i> CRM</a>
+            <a href="seo.html" class="active"><i class="fas fa-search"></i> SEO Automation</a>
+            <a href="ai.html"><i class="fas fa-brain"></i> AI Assistant</a>
+            <a href="memory.html"><i class="fas fa-database"></i> Memory</a>
+            <a href="#" onclick="authService.logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-search"></i> SEO Automation</h1>
+            <p>Automate your SEO optimization with AI-powered recommendations and real-time deployment</p>
+        </div>
+
+        <!-- SEO Overview Cards -->
+        <div class="overview-cards">
+            <div class="overview-card">
+                <div class="card-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="total-projects">0</h3>
+                    <p>Active Projects</p>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="total-optimizations">0</h3>
+                    <p>Optimizations Applied</p>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="total-pages">0</h3>
+                    <p>Pages Optimized</p>
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="avg-score">0</h3>
+                    <p>Avg SEO Score</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Projects Section -->
+        <div class="content-section">
+            <div id="seo-projects-container">
+                <!-- Projects will be loaded here by JavaScript -->
+                <div class="loading-state">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading SEO projects...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2>SEO Automation Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Meta Tags Automation</h3>
+                    <p>AI-powered title tags and meta descriptions optimization for better click-through rates</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heading"></i>
+                    </div>
+                    <h3>H1 Tag Optimization</h3>
+                    <p>Intelligent header tag analysis and keyword-optimized suggestions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Schema Markup</h3>
+                    <p>Automated JSON-LD schema generation for rich snippets and better search visibility</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Internal Linking</h3>
+                    <p>AI-driven internal link suggestions with optimized anchor text for better page authority</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Deployment</h3>
+                    <p>One-click optimization deployment without CMS limitations or developer involvement</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Bulk Optimization</h3>
+                    <p>Scale your SEO efforts with rule-based automation for thousands of pages</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Compatibility -->
+        <div class="platform-section">
+            <h2>Platform Compatibility</h2>
+            <p>Our SEO automation works with any platform through a simple JavaScript snippet:</p>
+            <div class="platform-logos">
+                <div class="platform-logo">
+                    <i class="fab fa-wordpress"></i>
+                    <span>WordPress</span>
+                </div>
+                <div class="platform-logo">
+                    <i class="fas fa-cube"></i>
+                    <span>Webflow</span>
+                </div>
+                <div class="platform-logo">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Framer</span>
+                </div>
+                <div class="platform-logo">
+                    <i class="fas fa-hubspot"></i>
+                    <span>HubSpot</span>
+                </div>
+                <div class="platform-logo">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Shopify</span>
+                </div>
+                <div class="platform-logo">
+                    <i class="fas fa-plus"></i>
+                    <span>Any CMS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include JavaScript files -->
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/seo.js"></script>
+    
+    <script>
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!authService.isAuthenticated()) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
