@@ -54,23 +54,29 @@ def create_app():
 
 def create_default_admin():
     """Create default admin user if it doesn't exist"""
-    from app.models.user import User
-    
-    # Check if admin user already exists
-    admin_user = db.session.query(User).filter_by(username='admin').first()
-    
-    if not admin_user:
-        # Create default admin user
-        admin_user = User(
-            username='admin',
-            email='admin@agenticcrm.com',
-            first_name='Admin',
-            last_name='User',
-            is_admin=True,
-            is_active=True
-        )
-        admin_user.set_password('admin123')
+    try:
+        from app.models.user import User
         
-        db.session.add(admin_user)
-        db.session.commit()
-        print("Default admin user created: admin@agenticcrm.com / admin123")
+        # Check if admin user already exists
+        admin_user = db.session.query(User).filter_by(username='admin').first()
+        
+        if not admin_user:
+            # Create default admin user
+            admin_user = User(
+                username='admin',
+                email='admin@agenticcrm.com',
+                first_name='Admin',
+                last_name='User',
+                is_admin=True,
+                is_active=True
+            )
+            admin_user.set_password('admin123')
+            
+            db.session.add(admin_user)
+            db.session.commit()
+            print("Default admin user created: admin@agenticcrm.com / admin123")
+        else:
+            print("Admin user already exists")
+    except Exception as e:
+        print(f"Error creating admin user: {e}")
+        db.session.rollback()
