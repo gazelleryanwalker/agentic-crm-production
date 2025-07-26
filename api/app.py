@@ -13,6 +13,8 @@ CORS(app)
 
 # Basic configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'fallback-secret-key')
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'fallback-jwt-key')
+app.config['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', '')
 
 # Simple health check
 @app.route('/health')
